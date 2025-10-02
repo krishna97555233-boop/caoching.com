@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Pro - Coaching Institute</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <style>
+        /* ---------------------------------------------------- */
+        /* CSS: Coaching Institute                           */
+        /* ---------------------------------------------------- */
+        :root {
+            --primary-color: #007bff; /* Blue */
+            --accent-color: #28a745; /* Green */
+            --text-color: #333333;
+            --background-color: #f8f9fa;
+            --card-background: #ffffff;
+            --shadow-light: 0 4px 12px rgba(0,0,0,0.05);
+            --border-radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
+
+        /* ------------------- HEADER & NAVIGATION ------------------- */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: var(--card-background);
+            box-shadow: var(--shadow-light);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-color);
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ------------------- UTILITIES ------------------- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: transform 0.3s, background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+        }
+
+        /* ------------------- ABOUT SECTION ------------------- */
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .about-image img {
+            /* Image: Students collaborating/studying */
+            content: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_x_P3o4X4X8O9v0O1Z1d4x5B7X4C9x4C9x4A&usqp=CAU');
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+        }
+
+        /* ------------------- COURSES SECTION ------------------- */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background-color: var(--card-background);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.1);
+        }
+
+        .course-card .material-icons {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .course-card h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .course-card p {
+            color: var(--text-color);
+            font-size: 0.95rem;
+        }
+
+        /* ------------------- CONTACT/FORM SECTION ------------------- */
+        #contact {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-form-card {
+            flex: 1;
+            background-color: var(--card-background);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .contact-form-card h4 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        /* WhatsApp Button style for form */
+        #submit-enquiry-btn {
+            width: 100%;
+            background-color: var(--accent-color);
+            padding: 15px;
+            font-size: 1.1rem;
+        }
+
+        #submit-enquiry-btn:hover {
+            background-color: #1e7e34;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4);
+        }
+        
+        /* ------------------- FOOTER ------------------- */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #343a40;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        /* ------------------- RESPONSIVENESS ------------------- */
+        @media (max-width: 992px) {
+            .about-content, .contact-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-image, .contact-info {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .nav-links {
+                gap: 15px;
+            }
+        }
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .header {
+                padding: 10px 5%;
+            }
+            .logo {
+                font-size: 1.4rem;
+            }
+            .nav-links {
+                gap: 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">Academia Pro</div>
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#courses">Courses</a>
+            <a href="#contact">Enquiry</a>
+        </nav>
+    </header>
+
+    <section id="about" class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Elevate Your Career with Expert Coaching</h3>
+                <p>Welcome to Academia Pro, your partner in achieving academic and professional excellence. We offer meticulously crafted courses by top industry experts and experienced educators. Start your journey to success today!</p>
+                <p style="margin-top: 15px; color: var(--primary-color); font-weight: 500;">Limited seats available for the next batch!</p>
+                <a href="#contact" class="btn" style="margin-top: 25px;">Start Your Enquiry</a>
+            </div>
+            <div class="about-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_x_P3o4X4X8O9v0O1Z1d4x5B7X4C9x4C9x4A&usqp=CAU" alt="Students studying collaboratively">
+            </div>
+        </div>
+    </section>
+
+    <section id="courses" style="background-color: var(--card-background);">
+        <div class="container">
+            <h2 class="section-title">Our Popular Courses</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <span class="material-icons">business_center</span>
+                    <h4>MBA Entrance Prep</h4>
+                    <p>Comprehensive coaching for CAT, GMAT, and other top business school entrance exams. Focus on Quant, Verbal, and Logical Reasoning.</p>
+                </div>
+                <div class="course-card">
+                    <span class="material-icons">school</span>
+                    <h4>Advanced JEE/NEET</h4>
+                    <p>Intensive program designed for aspiring engineers and doctors. Covers Physics, Chemistry, and Mathematics/Biology with advanced problem-solving.</p>
+                </div>
+                <div class="course-card">
+                    <span class="material-icons">code</span>
+                    <h4>Full Stack Development</h4>
+                    <p>Hands-on training in MERN stack, database management, and cloud deployment. Get job-ready in 6 months.</p>
+                </div>
+                <div class="course-card">
+                    <span class="material-icons">gavel</span>
+                    <h4>Civil Service Exam</h4>
+                    <p>In-depth coverage of GS, Current Affairs, and Essay Writing for UPSC and State PCS examinations. Expert guidance and mock tests.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container contact-content">
+            <div class="contact-info">
+                <h3>Ready to Transform Your Future?</h3>
+                <p>Fill out the quick form to receive a free counseling session and course details directly on WhatsApp.</p>
+                <p style="font-weight: 600; margin-top: 20px;">📞 +91-98765 43210</p>
+                <p>📧 info@academiapro.com</p>
+                <p style="margin-top: 20px;">*All fields are mandatory.</p>
+            </div>
+            <div class="contact-form-card">
+                <h4>Submit Your Enquiry</h4>
+                <form id="enquiry-form">
+                    <div class="form-group">
+                        <input type="text" id="enquiry-name" placeholder="Your Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="enquiry-phone" placeholder="WhatsApp Number" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="enquiry-course" required>
+                            <option value="">Select Course of Interest</option>
+                            <option value="MBA Entrance Prep">MBA Entrance Prep</option>
+                            <option value="Advanced JEE/NEET">Advanced JEE/NEET</option>
+                            <option value="Full Stack Development">Full Stack Development</option>
+                            <option value="Civil Service Exam">Civil Service Exam</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="submit-enquiry-btn" class="btn">Submit Enquiry on WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Academia Pro. All rights reserved.
+    </footer>
+
+    <script>
+        /* ---------------------------------------------------- */
+        /* JS: Coaching Institute                           */
+        /* ---------------------------------------------------- */
+        document.getElementById('enquiry-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('enquiry-name').value.trim();
+            const phone = document.getElementById('enquiry-phone').value.trim();
+            const course = document.getElementById('enquiry-course').value;
+            
+            if (!name || !phone || !course) {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            // Replace with your WhatsApp number
+            const whatsappNumber = '919876543210'; 
+
+            let message = `Hello Academia Pro, I would like to enquire about a course.%0A%0A`;
+            message += `*Name:* ${name}%0A`;
+            message += `*Phone:* ${phone}%0A`;
+            message += `*Course of Interest:* ${course}%0A%0A`;
+            message += `Please share the next batch schedule and fee details.`;
+
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
